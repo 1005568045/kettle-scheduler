@@ -1,0 +1,17 @@
+spring:
+  datasource: # 数据库链接
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true # sql打印
+    database-platform: org.hibernate.dialect.MySQLDialect # 数据库方言
+    open-in-view: false # false关闭懒加载
+  thymeleaf:
+    cache: false #开发过程关闭页面缓存
+logging: # 日志记录
+  level:
+    root: info
+    org.kettle.scheduler: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace # 打印sql参数

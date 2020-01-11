@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: kettle
+  profiles:
+    active: dev
+constant:
+  salt: kettle-scw
+  hash-iterations: 10

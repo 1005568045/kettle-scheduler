@@ -1,5 +1,8 @@
 package com.wh.kettlescheduler.shiro.realm;
 
+import com.wh.kettlescheduler.constant.Constant;
+import com.wh.kettlescheduler.entity.User;
+import com.wh.kettlescheduler.service.SysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -8,12 +11,8 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.kettle.scheduler.common.utils.StringUtil;
-import org.kettle.scheduler.system.biz.constant.Constant;
-import org.kettle.scheduler.system.biz.entity.User;
-import org.kettle.scheduler.system.biz.service.SysUserService;
-
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 /**
  * shiro数据操作相关类
@@ -24,7 +23,7 @@ import javax.annotation.Resource;
  */
 public class MyShiroRealm extends AuthorizingRealm {
 
-    @Resource(type = SysUserService.class)
+    @Autowired
     private SysUserService userService;
 
 	/**
@@ -79,7 +78,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         }
         // 把查询的信息放入验证对象中, getName()是获取当前Realm对象的名称
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), getName());
-        if (StringUtil.hasText(Constant.salt)) {
+        if (StringUtils.hasText(Constant.salt)) {
 			setEncryptInfo();
             // 如果存在盐, 就添加盐的验证
             info.setCredentialsSalt(ByteSource.Util.bytes(Constant.salt));

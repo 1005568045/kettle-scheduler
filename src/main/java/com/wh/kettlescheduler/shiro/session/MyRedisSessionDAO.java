@@ -1,10 +1,10 @@
 package com.wh.kettlescheduler.shiro.session;
 
+import com.wh.kettlescheduler.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
-import org.kettle.scheduler.common.utils.RedisUtil;
 
 import javax.annotation.Resource;
 import java.io.Serializable;

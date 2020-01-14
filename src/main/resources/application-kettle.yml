@@ -1,0 +1,5 @@
+kettle:
+  log-file-path: /logs/record
+  encoding: utf-8
+  upload-path: /home/coppm/kettle
+  kettle-home: /home/coppm/kettle

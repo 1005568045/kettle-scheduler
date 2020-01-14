@@ -177,7 +177,7 @@ function logout() {
     $.ajax({
         type: 'GET',
         async: false,
-        url: '/sys/login/out',
+        url: '/sys/login/out.do',
         success: function (res) {
             if (!res.success) {
                 alert(res.message);

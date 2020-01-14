@@ -69,12 +69,12 @@ function submitFrom() {
         url: '/sys/login',
         data: JSON.stringify(data),
         success: function (res) {
-            if (!res.success) {
+            if (res.code == 200) {
+                window.localStorage.setItem('username', data.username);
+                window.location.replace("/web/index.shtml");
+            } else {
                 $("#errorMsg").text(res.message);
                 $("#alert").show();
-            } else {
-                window.localStorage.setItem('username', data.username);
-                window.location.replace("/web/index");
             }
         },
         error: function () {

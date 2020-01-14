@@ -11,8 +11,9 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+
+import javax.annotation.Resource;
 
 /**
  * shiro数据操作相关类
@@ -23,7 +24,7 @@ import org.springframework.util.StringUtils;
  */
 public class MyShiroRealm extends AuthorizingRealm {
 
-    @Autowired
+    @Resource(type = SysUserService.class)
     private SysUserService userService;
 
 	/**

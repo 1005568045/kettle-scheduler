@@ -1,7 +1,7 @@
 package com.wh.kettlescheduler.controller;
 
 import com.wh.kettlescheduler.dto.UserLoginDTO;
-import com.wh.kettlescheduler.vo.ResultVo;
+import com.wh.kettlescheduler.vo.response.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

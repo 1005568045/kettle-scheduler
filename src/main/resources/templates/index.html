@@ -177,13 +177,13 @@ function logout() {
     $.ajax({
         type: 'GET',
         async: false,
-        url: '/sys/login/out.do',
+        url: '/sys/logout',
         success: function (res) {
-            if (!res.success) {
-                alert(res.message);
-            } else {
+            if (res.code == 200) {
                 window.localStorage.clear();
                 window.location.replace("/");
+            } else {
+                alert(res.msg);
             }
         },
         error: function () {
@@ -198,13 +198,13 @@ function getUserInfo() {
     $.ajax({
         type: 'GET',
         async: false,
-        url: '/sys/user/getUserByUsername.do?username=' + username,
+        url: '/sys/user/getUserByUsername?username=' + username,
         success: function (res) {
-            if (!res.success) {
-                alert(res.message);
+            if (res.code == 200) {
+                $(".navbar-user").text('你好, ' + res.data.nickname);
+                window.localStorage.setItem('userInfo', JSON.stringify(res.data));
             } else {
-                $(".navbar-user").text('你好, ' + res.result.nickname);
-                window.localStorage.setItem('userInfo', JSON.stringify(res.result));
+                alert(res.msg);
             }
         },
         error: function () {

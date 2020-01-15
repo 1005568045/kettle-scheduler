@@ -1,4 +1,4 @@
-package com.wh.kettlescheduler.vo;
+package com.wh.kettlescheduler.vo.response;
 
 import com.wh.kettlescheduler.enums.ResultCode;
 import lombok.Data;
